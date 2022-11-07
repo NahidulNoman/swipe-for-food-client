@@ -20,7 +20,7 @@ const NavBar = () => {
         >
           <span class="navbar-toggler-icon"></span>
         </button>
-        <div class="collapse navbar-collapse d-flex justify-content-end" id="navbarNavDropdown">
+        <div class="collapse navbar-collapse d-lg-flex justify-content-end" id="navbarNavDropdown">
           <ul class="navbar-nav ">
             <li class="nav-item">
               <span class="nav-link active" aria-current="page">
