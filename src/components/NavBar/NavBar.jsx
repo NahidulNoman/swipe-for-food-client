@@ -4,13 +4,13 @@ import React from "react";
 const NavBar = () => {
 
   return (
-    <nav class="navbar navbar-expand-lg bg-light">
-      <div class="container">
-        <span class="navbar-brand">
+    <nav className="navbar navbar-expand-lg bg-light">
+      <div className="container">
+        <span className="navbar-brand">
         SWIPE FOR FOOD
         </span>
         <button
-          class="navbar-toggler"
+          className="navbar-toggler"
           type="button"
           data-bs-toggle="collapse"
           data-bs-target="#navbarNavDropdown"
@@ -18,22 +18,22 @@ const NavBar = () => {
           aria-expanded="false"
           aria-label="Toggle navigation"
         >
-          <span class="navbar-toggler-icon"></span>
+          <span className="navbar-toggler-icon"></span>
         </button>
-        <div class="collapse navbar-collapse d-lg-flex justify-content-end" id="navbarNavDropdown">
-          <ul class="navbar-nav ">
-            <li class="nav-item">
-              <span class="nav-link active" aria-current="page">
+        <div className="collapse navbar-collapse d-lg-flex justify-content-end" id="navbarNavDropdown">
+          <ul className="navbar-nav ">
+            <li className="nav-item">
+              <span className="nav-link active" aria-current="page">
                 Home
               </span>
             </li>
-            <li class="nav-item">
-              <span class="nav-link">
+            <li className="nav-item">
+              <span className="nav-link">
                 Features
               </span>
             </li>
-            <li class="nav-item">
-              <span class="nav-link" >
+            <li className="nav-item">
+              <span className="nav-link" >
                 Pricing
               </span>
             </li>
