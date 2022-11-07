@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 // SWIPE FOR FOOD
 const NavBar = () => {
@@ -22,20 +23,20 @@ const NavBar = () => {
         </button>
         <div className="collapse navbar-collapse d-lg-flex justify-content-end" id="navbarNavDropdown">
           <ul className="navbar-nav ">
-            <li className="nav-item">
-              <span className="nav-link active" aria-current="page">
+          <li className="nav-item">
+              <Link className="nav-link fw-semibold" to="/home" title="Home">
                 Home
-              </span>
+              </Link>
             </li>
             <li className="nav-item">
-              <span className="nav-link">
-                Features
-              </span>
+              <Link className="nav-link fw-semibold" to="/blog" title="Blog">
+                Blog
+              </Link>
             </li>
             <li className="nav-item">
-              <span className="nav-link" >
-                Pricing
-              </span>
+              <Link className="nav-link fw-semibold" to="/home" title="Home">
+                Service
+              </Link>
             </li>
           </ul>
         </div>
