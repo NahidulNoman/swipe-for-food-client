@@ -8,7 +8,7 @@ const Home = () => {
             <Banner></Banner>
             <Services></Services>
             <div className='text-center m-5 '>
-            <button type="button" class="btn btn-primary ">See All</button>
+            <button type="button" className="btn btn-primary ">See All</button>
             </div>
         </div>
     );

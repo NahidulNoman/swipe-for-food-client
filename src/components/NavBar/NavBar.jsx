@@ -34,8 +34,8 @@ const NavBar = () => {
               </Link>
             </li>
             <li className="nav-item">
-              <Link className="nav-link fw-semibold" to="/home" title="Home">
-                Service
+              <Link className="nav-link fw-semibold" to="/services" title="Services">
+                Services
               </Link>
             </li>
           </ul>
