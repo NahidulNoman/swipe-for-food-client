@@ -5,8 +5,8 @@ import { Link } from 'react-router-dom';
 import { AuthContext } from '../../UserContext/UserContext';
 
 const Login = () => {
-    const {user} = useContext(AuthContext);
     const [errors, setErrors] = useState("");
+    const {logUser,signInGoogle} = useContext(AuthContext);
 
 //   const from = location.state?.from?.pathname || "/";
 
@@ -17,23 +17,27 @@ const Login = () => {
     const password = form.password.value;
     console.log(email, password);
 
+    logUser(email,password)
+    .then(result => {
+        const user = result.user;
+        console.log(user);
+    })
+    .catch(error => console.log(error));
+
   };
   // sign is with google
-//   const handlerGoogle = () => {
-//     withGoogle()
-//       .then((result) => {
-//         const user = result.user;
-//         console.log(user);
-//       })
-//       .catch((error) => {
-//         const errorMessage = error.message;
-//         setErrors(errorMessage);
-//         console.log(error);
-//       });
-//   };
-  // sign in with github
-
-
+  const handlerGoogle = () => {
+    signInGoogle()
+      .then((result) => {
+        const user = result.user;
+        console.log(user);
+      })
+      .catch((error) => {
+        const errorMessage = error.message;
+        setErrors(errorMessage);
+        console.log(error);
+      });
+  };
 
     return (
         <div className="w-75 mx-auto mt-5 shadow-lg p-3 rounded-4 bg-light">
@@ -75,7 +79,7 @@ const Login = () => {
           </p>
           <div className="d-flex">
             <p className="me-3">
-              <small className="fw-semibold opacity-75">
+              <small onClick={handlerGoogle} className="fw-semibold opacity-75">
                 Log In with <Link>GooGle</Link>
               </small>
             </p>

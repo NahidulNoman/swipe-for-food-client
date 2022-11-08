@@ -1,10 +1,13 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import { Button, Form } from 'react-bootstrap';
 import { FaCheckCircle } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
+import { AuthContext } from '../../UserContext/UserContext';
 
 const SignUp = () => {
  const [errors, setErrors] = useState("");
+ const {createUser,signInGoogle} = useContext(AuthContext);
+
   
     const handlerSubmit = (e) => {
       e.preventDefault();
@@ -15,21 +18,21 @@ const SignUp = () => {
       const password = form.password.value;
       console.log(name, email, password, photoUrl);
   
-    //   createUser(email, password)
-    //     .then((result) => {
-    //       setErrors("");
-    //       setUser(result);
+      createUser(email, password)
+        .then((result) => {
+          setErrors("");
+        //   setUser(result);
         //   updateUser(name, photoUrl);
         //   toast.success('Successfully Sign Up !!');
-        //   form.reset();
-          // const user = result.user;
-          // console.log(user);
-        // })
-        // .catch((error) => {
-        //   const errorMessage = error.message;
-        //   // console.log(error);
-        //   setErrors(errorMessage);
-        // });
+          form.reset();
+          const user = result.user;
+          console.log(user);
+        })
+        .catch((error) => {
+          const errorMessage = error.message;
+          // console.log(error);
+          setErrors(errorMessage);
+        });
     };
     // user profile and name update info
     // const updateUser = (name, photoUrl) => {
@@ -48,18 +51,18 @@ const SignUp = () => {
     //     });
     // };
     // sign in with google
-    // const handlerGoogle = () => {
-    //   withGoogle()
-    //     .then((result) => {
-    //       const user = result.user;
-    //       console.log(user);
-    //     })
-    //     .catch((error) => {
-    //       const errorMessage = error.message;
-    //       console.log(error);
-    //       setErrors(errorMessage);
-    //     });
-    // };
+    const handlerGoogle = () => {
+        signInGoogle()
+        .then((result) => {
+          const user = result.user;
+          console.log(user);
+        })
+        .catch((error) => {
+          const errorMessage = error.message;
+          console.log(error);
+          setErrors(errorMessage);
+        });
+    };
 
 
     return (
@@ -115,7 +118,7 @@ const SignUp = () => {
         </p>
         <div className="d-flex">
           <p className="me-3">
-            <small className="fw-semibold opacity-75">
+            <small onClick={handlerGoogle} className="fw-semibold opacity-75">
               Log In with <Link>GooGle</Link>
             </small>
           </p>
