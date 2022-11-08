@@ -1,14 +1,16 @@
 import React, { useContext, useState } from 'react';
 import { Button, Form } from 'react-bootstrap';
 import { FaArrowAltCircleRight } from 'react-icons/fa';
-import { Link } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../UserContext/UserContext';
 
 const Login = () => {
     const [errors, setErrors] = useState("");
-    const {logUser,signInGoogle} = useContext(AuthContext);
+    const {logUser,signInGoogle,setLoading} = useContext(AuthContext);
+    const location = useLocation();
+    const navigate = useNavigate();
 
-//   const from = location.state?.from?.pathname || "/";
+  const from = location.state?.from?.pathname || "/";
 
   const handlerSubmit = (e) => {
     e.preventDefault();
@@ -20,9 +22,13 @@ const Login = () => {
     logUser(email,password)
     .then(result => {
         const user = result.user;
+        navigate(from ,{replace : true})
         console.log(user);
     })
-    .catch(error => console.log(error));
+    .catch(error => console.log(error))
+    .finally(() => {
+        setLoading(false);
+      });
 
   };
   // sign is with google

@@ -6,7 +6,7 @@ const ServiceDetails = () => {
     console.log(serviceDetails);
     return (
         <div>
-            
+            <h3>this is service details page.</h3>
         </div>
     );
 };
