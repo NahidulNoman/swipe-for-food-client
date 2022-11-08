@@ -1,9 +1,10 @@
 import React from "react";
 import { FaStar, FaArrowAltCircleRight } from "react-icons/fa";
+import { Link } from "react-router-dom";
 import "./ser.css";
 
 const Service = ({ service }) => {
-  const { img, price, description, name, rating, deliveryTime } = service;
+  const { img, price, description, name, rating, deliveryTime,_id } = service;
 
   return (
     <div className="card" style={{ maxWidth: "18rem" }}>
@@ -30,9 +31,11 @@ const Service = ({ service }) => {
         <p className="mb-2 fw-bold opacity-75">
           <span className="time">Delivery Time :</span> {deliveryTime} minutes
         </p>
-        <button type="button" className="btn btn-outline-primary fw-bold">
+       <Link to={`/services/${_id}`}>
+       <button type="button" className="btn btn-outline-primary fw-bold">
           Order Details <FaArrowAltCircleRight></FaArrowAltCircleRight>
         </button>
+       </Link>
       </div>
     </div>
   );

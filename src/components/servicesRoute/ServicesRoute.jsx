@@ -5,7 +5,7 @@ import './serviceRoute.css';
 
 const ServicesRoute = () => {
     const servicesRoute = useLoaderData();
-    console.log(servicesRoute);
+    // console.log(servicesRoute);
     // d-flex flex-column flex-lg-row
     return (
         <div>
