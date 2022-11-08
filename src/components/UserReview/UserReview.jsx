@@ -3,16 +3,18 @@ import { AuthContext } from '../../UserContext/UserContext';
 import UserReviewDetails from './UserReviewDetails';
 import './reviewDetails.css';
 
-const UserReview = () => {
-    const {user} = useContext(AuthContext);
+const UserReview = ({children}) => {
+    // const {user} = useContext(AuthContext);
     const [reviews , setReviews] = useState([]);
+    
+    const idReview = children;
 
     useEffect( () => {
-        fetch(`http://localhost:5000/review?email=${user?.email}`)
+        fetch(`http://localhost:5000/review/${idReview}`)
         .then(res => res.json())
         .then(data => setReviews(data))
-    },[user?.email])
-    
+    },[idReview])
+
     return (
         <div className='reviewDetails'>
             {

@@ -29,7 +29,7 @@ const ServiceDetails = () => {
           </p>
         </div>
       </div>
-      <UserReview></UserReview>
+      <UserReview>{_id}</UserReview>
       <ReviewForm>{_id}</ReviewForm>
     </div>
   );

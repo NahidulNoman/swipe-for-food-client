@@ -8,6 +8,7 @@ import MyReview from "../components/MyReview/MyReview";
 import ServiceDetails from "../components/ServiceDetails/ServiceDetails";
 import ServicesRoute from "../components/servicesRoute/ServicesRoute";
 import SignUp from "../components/SignUp/SignUp";
+import UserReview from "../components/UserReview/UserReview";
 import Main from "../layout/Main";
 // import PrivateRoute from "../Private/PrivateRoute";
 

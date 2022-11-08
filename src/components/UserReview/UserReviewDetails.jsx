@@ -13,7 +13,7 @@ const UserReviewDetails = ({ review }) => {
           <div className="card-body">
             <h5 className="card-title">{name}</h5>
             <p className="card-text">
-             {message? message.slice(0,200)+'...' : ''}
+             {message? message.slice(0,200)+'...' : message.slice(0,200)+'...'}
             </p>
           </div>
         </div>

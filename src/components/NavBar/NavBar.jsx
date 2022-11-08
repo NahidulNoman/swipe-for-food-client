@@ -68,8 +68,8 @@ const NavBar = () => {
                 <li className="nav-item">
                   <Link
                     className="nav-link fw-semibold"
-                    to="/services"
-                    title="Services"
+                    to="/myReview"
+                    title="My Review"
                   >
                     My Review
                   </Link>
@@ -77,8 +77,8 @@ const NavBar = () => {
                 <li className="nav-item">
                   <Link
                     className="nav-link fw-semibold"
-                    to="/services"
-                    title="Services"
+                    to="/addReview"
+                    title="Add Review"
                   >
                     Add Review
                   </Link>
