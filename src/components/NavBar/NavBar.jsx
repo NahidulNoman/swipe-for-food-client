@@ -1,8 +1,19 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Link } from "react-router-dom";
+import { AuthContext } from "../../UserContext/UserContext";
 
 // SWIPE FOR FOOD
 const NavBar = () => {
+  const { user,logOut} = useContext(AuthContext);
+
+  const handlerLogOut = () => {
+    logOut()
+    .then(()=>{})
+    .catch(error => {
+      console.log(error)
+    })
+  };
+  
   return (
     <nav className="navbar navbar-expand-lg bg-light">
       <div className="container">
@@ -25,25 +36,94 @@ const NavBar = () => {
           id="navbarNavDropdown"
         >
           <ul className="navbar-nav ">
-            <li className="nav-item">
-              <Link className="nav-link fw-semibold" to="/home" title="Home">
-                Home
-              </Link>
-            </li>
-            <li className="nav-item">
-              <Link className="nav-link fw-semibold" to="/blog" title="Blog">
-                Blog
-              </Link>
-            </li>
-            <li className="nav-item">
-              <Link
-                className="nav-link fw-semibold"
-                to="/services"
-                title="Services"
-              >
-                Services
-              </Link>
-            </li>
+            {user?.email ? (
+              <>
+                <li className="nav-item">
+                  <Link
+                    className="nav-link fw-semibold"
+                    to="/home"
+                    title="Home"
+                  >
+                    Home
+                  </Link>
+                </li>
+                <li className="nav-item">
+                  <Link
+                    className="nav-link fw-semibold"
+                    to="/blog"
+                    title="Blog"
+                  >
+                    Blog
+                  </Link>
+                </li>
+                <li className="nav-item">
+                  <Link
+                    className="nav-link fw-semibold"
+                    to="/services"
+                    title="Services"
+                  >
+                    Services
+                  </Link>
+                </li>
+                <li className="nav-item">
+                  <Link
+                    className="nav-link fw-semibold"
+                    to="/services"
+                    title="Services"
+                  >
+                    My Review
+                  </Link>
+                </li>
+                <li className="nav-item">
+                  <Link
+                    className="nav-link fw-semibold"
+                    to="/services"
+                    title="Services"
+                  >
+                    Add Review
+                  </Link>
+                </li>
+                <li className="nav-item">
+                  <Link
+                    onClick={handlerLogOut}
+                    className="nav-link fw-semibold"
+                    title="Log Out"
+                  >
+                    Log Out
+                  </Link>
+                </li>
+              </>
+            ) : (
+              <>
+                <li className="nav-item">
+                  <Link
+                    className="nav-link fw-semibold"
+                    to="/home"
+                    title="Home"
+                  >
+                    Home
+                  </Link>
+                </li>
+                <li className="nav-item">
+                  <Link
+                    className="nav-link fw-semibold"
+                    to="/blog"
+                    title="Blog"
+                  >
+                    Blog
+                  </Link>
+                </li>
+                <li className="nav-item">
+                  <Link
+                    className="nav-link fw-semibold"
+                    to="/services"
+                    title="Services"
+                  >
+                    Services
+                  </Link>
+                </li>
+              </>
+            )}
           </ul>
         </div>
       </div>
