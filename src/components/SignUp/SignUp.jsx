@@ -1,12 +1,13 @@
 import React, { useContext, useState } from 'react';
 import { Button, Form } from 'react-bootstrap';
+import toast from 'react-hot-toast';
 import { FaCheckCircle } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
 import { AuthContext } from '../../UserContext/UserContext';
 
 const SignUp = () => {
  const [errors, setErrors] = useState("");
- const {createUser,signInGoogle} = useContext(AuthContext);
+ const {createUser,signInGoogle,userUpdateInfo,setUser} = useContext(AuthContext);
 
   
     const handlerSubmit = (e) => {
@@ -21,9 +22,9 @@ const SignUp = () => {
       createUser(email, password)
         .then((result) => {
           setErrors("");
-        //   setUser(result);
-        //   updateUser(name, photoUrl);
-        //   toast.success('Successfully Sign Up !!');
+          setUser(result);
+          updateUser(name, photoUrl);
+          toast.success('Successfully Sign Up !!');
           form.reset();
           const user = result.user;
           console.log(user);
@@ -35,21 +36,21 @@ const SignUp = () => {
         });
     };
     // user profile and name update info
-    // const updateUser = (name, photoUrl) => {
-    //   const profile = {
-    //     displayName: name,
-    //     photoURL: photoUrl,
-    //   };
-    //   userUpdateInfo(profile)
-    //     .then((result) => {
-    //       setUser(result);
+    const updateUser = (name, photoUrl) => {
+      const profile = {
+        displayName: name,
+        photoURL: photoUrl,
+      };
+      userUpdateInfo(profile)
+        .then((result) => {
+          setUser(result);
           // console.log(result.user)
-    //     })
-    //     .catch((error) => {
-    //       const errorMessage = error.message;
-    //       setErrors(errorMessage);
-    //     });
-    // };
+        })
+        .catch((error) => {
+          const errorMessage = error.message;
+          setErrors(errorMessage);
+        });
+    };
     // sign in with google
     const handlerGoogle = () => {
         signInGoogle()

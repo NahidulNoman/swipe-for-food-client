@@ -122,6 +122,15 @@ const NavBar = () => {
                     Services
                   </Link>
                 </li>
+                <li className="nav-item">
+                  <Link
+                    className="nav-link fw-semibold"
+                    to="/login"
+                    title="Log In"
+                  >
+                    Log In
+                  </Link>
+                </li>
               </>
             )}
           </ul>
