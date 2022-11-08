@@ -3,13 +3,12 @@ import { Link } from "react-router-dom";
 
 // SWIPE FOR FOOD
 const NavBar = () => {
-
   return (
     <nav className="navbar navbar-expand-lg bg-light">
       <div className="container">
-        <span className="navbar-brand">
-        SWIPE FOR FOOD
-        </span>
+        <Link to="/" className="navbar-brand">
+          SWIPE FOR FOOD
+        </Link>
         <button
           className="navbar-toggler"
           type="button"
@@ -21,9 +20,12 @@ const NavBar = () => {
         >
           <span className="navbar-toggler-icon"></span>
         </button>
-        <div className="collapse navbar-collapse d-lg-flex justify-content-end" id="navbarNavDropdown">
+        <div
+          className="collapse navbar-collapse d-lg-flex justify-content-end"
+          id="navbarNavDropdown"
+        >
           <ul className="navbar-nav ">
-          <li className="nav-item">
+            <li className="nav-item">
               <Link className="nav-link fw-semibold" to="/home" title="Home">
                 Home
               </Link>
@@ -34,7 +36,11 @@ const NavBar = () => {
               </Link>
             </li>
             <li className="nav-item">
-              <Link className="nav-link fw-semibold" to="/services" title="Services">
+              <Link
+                className="nav-link fw-semibold"
+                to="/services"
+                title="Services"
+              >
                 Services
               </Link>
             </li>

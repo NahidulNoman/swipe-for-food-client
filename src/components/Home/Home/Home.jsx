@@ -1,17 +1,31 @@
-import React from 'react';
-import Banner from '../Banner/Banner';
-import Services from '../Services/Services';
+import React from "react";
+import { Link } from "react-router-dom";
+import Banner from "../Banner/Banner";
+import CustomerRating from "../CustomerRating/CustomerRating";
+import Services from "../Services/Services";
+import Work from "../Work/Work";
 
 const Home = () => {
-    return (
-        <div className='container'>
-            <Banner></Banner>
-            <Services></Services>
-            <div className='text-center m-5 '>
-            <button type="button" className="btn btn-primary ">See All</button>
-            </div>
-        </div>
-    );
+  return (
+    <div className="container">
+      <Banner></Banner>
+      <h2 className="text-center m-5 text-primary">OUR FEATURED MENU</h2>
+      <p className="text-center">
+        Food from your favorite restaurants to your table. Just order and enjoy
+        our delicious fresh food.
+      </p>
+      <Services></Services>
+      <div className="text-center m-5 ">
+        <Link to="/services">
+          <button type="button" className="btn btn-primary ">
+            See All{" "}
+          </button>
+        </Link>
+      </div>
+      <Work></Work>
+      <CustomerRating></CustomerRating>
+    </div>
+  );
 };
 
 export default Home;

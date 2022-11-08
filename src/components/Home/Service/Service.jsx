@@ -9,7 +9,7 @@ const Service = ({ service }) => {
       <div className="card-body">
         <h5 className="card-title">{name}</h5>
         <p className="card-text">
-        {description? description.slice(0,100)+'...' : "no description"}
+        {description? description.slice(0,80)+'...' : "no description"}
         </p>
         <div className="d-flex justify-content-between">
         <p>Price : {price} Tk</p>
