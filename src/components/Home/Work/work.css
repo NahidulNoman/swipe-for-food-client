@@ -3,3 +3,6 @@
     grid-template-columns: repeat(3,1fr);
     gap: 15px;
 }
+.wait{
+    color: rgb(199, 169, 0);
+}

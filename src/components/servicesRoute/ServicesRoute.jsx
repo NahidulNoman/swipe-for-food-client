@@ -8,13 +8,16 @@ const ServicesRoute = () => {
     console.log(servicesRoute);
     // d-flex flex-column flex-lg-row
     return (
-        <div className='serviceRoute container mt-5 mb-5 '>
+        <div>
+            <h3 className='text-center m-5 text-primary'>MENU CATEGORIES</h3>
+            <div className='serviceRoute container mt-5 mb-5 '>
             {
                 servicesRoute.map(service => <Service
                 key={service._id}
                 service={service}
                 ></Service>)
             }
+        </div>
         </div>
     );
 };
