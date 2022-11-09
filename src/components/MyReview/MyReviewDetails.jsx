@@ -1,31 +1,35 @@
 import React, { useEffect, useState } from "react";
-import Table from "react-bootstrap/Table";
-import MyReviewTable from "./MyReviewTable";
+import Card from 'react-bootstrap/Card';
+import { Button } from "react-bootstrap";
 
-const MyReviewDetails = ({ review }) => {
-  const { name, message, reviewId } = review;
+
+const MyReviewDetails = ({ review,handlerDelete }) => {
+  const { name, message, reviewId,_id } = review;
   const [nowReview, setNowReview] = useState({});
+  // const {_id} = nowReview;
 
   useEffect(() => {
     fetch(`http://localhost:5000/services/${reviewId}`)
       .then((res) => res.json())
       .then((data) => setNowReview(data));
   }, [reviewId]);
-  console.log(nowReview);
+
+  // console.log(review)
+  
+
+
   return (
-    <Table striped bordered hover size="lg">
-      <MyReviewTable></MyReviewTable>
-      <tbody>
-        <tr>
-          <td>X</td>
-          <td>{nowReview.name}</td>
-          <td>{name}</td>
-          <td>
-            <button className="btn btn-primary">Edit</button>
-          </td>
-        </tr>
-      </tbody>
-    </Table>
+    <Card style={{ width: '18rem' }}>
+      <Card.Body>
+        <Card.Title>{nowReview.name}</Card.Title>
+        <Card.Subtitle className="mb-2 text-muted">{name}</Card.Subtitle>
+        <Card.Text>
+          {message}
+        </Card.Text>
+        <Button onClick={()=>handlerDelete(_id)} variant="outline-danger" className="me-5">DELETE</Button>
+        <Button variant="outline-success">UPDATE</Button>
+      </Card.Body>
+    </Card>
   );
 };
 

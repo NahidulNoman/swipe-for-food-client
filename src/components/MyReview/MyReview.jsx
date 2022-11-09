@@ -1,6 +1,8 @@
 import React, { useContext, useEffect, useState } from 'react';
 import { AuthContext } from '../../UserContext/UserContext';
 import MyReviewDetails from './MyReviewDetails';
+import toast from "react-hot-toast";
+import './ReviewDetails.css';
 
 const MyReview = () => {
     const {user} = useContext(AuthContext);
@@ -12,14 +14,36 @@ const MyReview = () => {
         .then(data => setReviews(data))
     },[user?.email])
 
-    
-    // console.log(reviews)
+    if(reviews.length === 0){
+        return <h5 className='text-center mt-5 display-2 text-danger'>No reviews were added</h5>
+    };
+
+    const handlerDelete = (id) => {
+        // console.log('clicked',id)
+        const agree = window.confirm('you want to delete this service!!')
+        if(agree){
+          fetch(`http://localhost:5000/review/${id}`, {
+            method : 'delete',
+          })
+          .then(res => res.json())
+          .then(data => {
+            if(data.deletedCount ){
+                const remaining = reviews.filter(rev => rev._id !== id)
+                setReviews(remaining);
+              toast.success('service deleted successfully.')
+            }
+          })
+        }
+      }
+
+
     return (
-        <div className='container'>
+        <div className='container mt-5 cardContainer'>
             {
                 reviews.map(review => <MyReviewDetails
                 key={review._id}
                 review={review}
+                handlerDelete={handlerDelete}
                 ></MyReviewDetails>)
             }
         </div>
