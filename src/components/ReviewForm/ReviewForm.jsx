@@ -20,7 +20,7 @@ const ReviewForm = ({children}) => {
         message,
         reviewId,
     }
-    console.log(userReview);
+    // console.log(userReview);
 
     fetch('http://localhost:5000/review', {
         method : 'post',

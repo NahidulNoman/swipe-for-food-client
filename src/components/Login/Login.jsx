@@ -1,5 +1,6 @@
 import React, { useContext, useState } from 'react';
 import { Button, Form } from 'react-bootstrap';
+import toast from 'react-hot-toast';
 import { FaArrowAltCircleRight } from 'react-icons/fa';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../UserContext/UserContext';
@@ -22,6 +23,7 @@ const Login = () => {
     logUser(email,password)
     .then(result => {
         const user = result.user;
+        toast.success('user login successfully !!')
         navigate(from ,{replace : true})
         console.log(user);
     })

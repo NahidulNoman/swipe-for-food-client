@@ -1,9 +1,11 @@
-import React from "react";
-import { useLoaderData } from "react-router-dom";
+import React, { useContext } from "react";
+import { Link, useLoaderData } from "react-router-dom";
+import { AuthContext } from "../../UserContext/UserContext";
 import ReviewForm from "../ReviewForm/ReviewForm";
 import UserReview from "../UserReview/UserReview";
 
 const ServiceDetails = () => {
+  const {user} = useContext(AuthContext);
   const serviceDetails = useLoaderData();
 //   console.log(serviceDetails);
   const { img, description, name, price, deliveryTime, _id } = serviceDetails;
@@ -30,7 +32,12 @@ const ServiceDetails = () => {
         </div>
       </div>
       <UserReview>{_id}</UserReview>
-      <ReviewForm>{_id}</ReviewForm>
+      {
+        user?.email ? <ReviewForm>{_id}</ReviewForm> : <>
+        <h3> Please <Link to='/login'>login</Link> to add a review</h3>
+        </>
+      }
+      
     </div>
   );
 };
