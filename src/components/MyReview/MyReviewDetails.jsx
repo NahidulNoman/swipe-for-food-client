@@ -1,9 +1,10 @@
 import React, { useEffect, useState } from "react";
 import Card from 'react-bootstrap/Card';
 import { Button } from "react-bootstrap";
+import { Link } from "react-router-dom";
 
 
-const MyReviewDetails = ({ review,handlerDelete }) => {
+const MyReviewDetails = ({ review,handlerDelete,handlerUpdate }) => {
   const { name, message, reviewId,_id } = review;
   const [nowReview, setNowReview] = useState({});
   // const {_id} = nowReview;
@@ -27,10 +28,10 @@ const MyReviewDetails = ({ review,handlerDelete }) => {
           {message}
         </Card.Text>
         <Button onClick={()=>handlerDelete(_id)} variant="outline-danger" className="me-5">DELETE</Button>
-        <Button variant="outline-success">UPDATE</Button>
+        <Link to='/reviewUpdate'><Button variant="outline-success">UPDATE</Button></Link>
       </Card.Body>
     </Card>
   );
 };
-
+//onClick={()=>handlerUpdate(_id)} 
 export default MyReviewDetails;

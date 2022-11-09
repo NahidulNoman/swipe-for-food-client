@@ -5,6 +5,7 @@ import ErrorPage from "../components/ErrorPage/ErrorPage";
 import Home from "../components/Home/Home/Home";
 import Login from "../components/Login/Login";
 import MyReview from "../components/MyReview/MyReview";
+import ReviewUpdate from "../components/MyReview/ReviewUpdate";
 import ServiceDetails from "../components/ServiceDetails/ServiceDetails";
 import ServicesRoute from "../components/servicesRoute/ServicesRoute";
 import SignUp from "../components/SignUp/SignUp";
@@ -54,6 +55,10 @@ export const router = createBrowserRouter([
             {
                 path : '/addReview',
                 element : <AddReview></AddReview>
+            },
+            {
+                path : '/reviewUpdate',
+                element : <ReviewUpdate></ReviewUpdate>
             }
         ]
     }
