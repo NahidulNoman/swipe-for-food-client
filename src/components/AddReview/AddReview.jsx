@@ -1,36 +1,46 @@
 import React from "react";
 import { Button, Form, InputGroup } from "react-bootstrap";
+import toast from "react-hot-toast";
+import useTitle from "../hooks/UseTitle";
 
 const AddReview = () => {
+  useTitle("Add Service");
   const handlerSubmit = (e) => {
     e.preventDefault();
     const form = e.target;
     const name = form.name.value;
     const img = form.photoUrl.value;
     const price = form.price.value;
-    const message = form.message.value;
+    const description = form.description.value;
     const userReview = {
       name,
       img,
-      message,
-      price
+      description,
+      price,
     };
-    console.log(userReview);
+    // console.log(userReview);
 
-    fetch('http://localhost:5000/services', {
-        method : 'post',
-        headers : {
-            'content-type' : 'application/json'
-        },
-        body : JSON.stringify(userReview)
+    fetch("http://localhost:5000/services", {
+      method: "post",
+      headers: {
+        "content-type": "application/json",
+      },
+      body: JSON.stringify(userReview),
     })
-    .then(res => res.json())
-    .then(data => console.log(data))
-
+      .then((res) => res.json())
+      .then((data) =>{
+         if(data.acknowledged){
+          toast.success('Your service is added service page !!')
+          form.reset();
+         }
+      });
   };
 
   return (
-    <div className="container">
+    <div className="container mt-5 shadow-lg p-4 bg-light">
+      <h3 className="text-center fw-bold mb-4">
+        ADD YOUR <span className="text-success">SERVICE</span>
+      </h3>
       <Form onSubmit={handlerSubmit}>
         <Form.Group className="mb-3" controlId="formBasicName">
           <Form.Label className="fw-semibold">Order Name</Form.Label>
@@ -47,6 +57,7 @@ const AddReview = () => {
             name="photoUrl"
             type="text"
             placeholder="add image"
+            required
           />
         </Form.Group>
         <Form.Group className="mb-3" controlId="formBasicPhoto">
@@ -55,15 +66,23 @@ const AddReview = () => {
             name="price"
             type="text"
             placeholder="Enter price"
+            required
           />
         </Form.Group>
         <InputGroup>
-        <InputGroup.Text className="fw-semibold">Description</InputGroup.Text>
-        <Form.Control name="message" type="text" as="textarea" aria-label="With textarea" placeholder="write your order Description..." />
-      </InputGroup>
+          <InputGroup.Text className="fw-semibold">Description</InputGroup.Text>
+          <Form.Control
+            name="description"
+            type="text"
+            as="textarea"
+            aria-label="With textarea"
+            placeholder="write your order Description..."
+            required
+          />
+        </InputGroup>
 
         <Button variant="primary" type="submit" className="fw-semibold mt-4 ">
-          POST
+          ADD SERVICE
         </Button>
       </Form>
     </div>

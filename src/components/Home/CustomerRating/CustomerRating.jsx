@@ -11,11 +11,11 @@ import {
 const CustomerRating = () => {
   return (
     <div>
-        <h3 className="text-center m-5"><span className="text-warning">ABOUT</span> US</h3>
+        <h3 className="text-center m-5"><span className="text-warning">FEEDBACK </span>OPTION</h3>
       <div className="row mt-5 flex-column flex-lg-row">
         <div className="col-lg-6 col-sm-12">
-          <h3 className="display-4 fw-semibold">
-            What <span className="text-warning">customers</span> <br /> say about us?
+          <h3 className="display-4 fw-semibold mb-5">
+            What <span className="text-warning">customers</span> <br /> say?
           </h3>
           <h5 className="fw-bold opacity-75">
             <FaUserCircle></FaUserCircle> Syed Mohammad Noman
@@ -46,7 +46,7 @@ const CustomerRating = () => {
           </span>
         </div>
         <div className="col-lg-6 col-sm-12">
-          <img src={customer} className="img-fluid  w-75" alt="" />
+          <img src={customer} className="img-fluid ms-5 mt-4 w-75" alt="" />
         </div>
       </div>
     </div>

@@ -7,13 +7,16 @@ import Services from "../Services/Services";
 import Work from "../Work/Work";
 
 const Home = () => {
-  useTitle('Home')
+  useTitle("Home");
   return (
     <div className="container">
       <Banner></Banner>
-      <h2 className="text-center mt-5 text-primary fw-bold">OUR FEATURED MENU</h2>
+      <h2 className="text-center mt-5 text-primary fw-bold">
+        LIMITED EDITION FOR FOOD'S
+      </h2>
       <p className="text-center mb-5 fw-semibold opacity-75">
-        Food from your favorite restaurants to your table. Just order and <br /> enjoy our delicious fresh food.
+        Food from your favorite restaurants to your table. Just order and <br />{" "}
+        enjoy delicious fresh food.
       </p>
       <Services></Services>
       <div className="text-center m-5 ">

@@ -1,5 +1,6 @@
 import React, { useContext } from "react";
 import { Button, Form, InputGroup } from "react-bootstrap";
+import toast from "react-hot-toast";
 import { AuthContext } from "../../UserContext/UserContext";
 
 const ReviewForm = ({children}) => {
@@ -32,7 +33,7 @@ const ReviewForm = ({children}) => {
     .then(res => res.json())
     .then(data => {
         if(data.acknowledged){
-            alert('submit successfully!!')
+            toast.success('Successfully Add Your Review!!')
             console.log(data)
         }
     })
@@ -40,7 +41,9 @@ const ReviewForm = ({children}) => {
   };
 
   return (
-    <Form onSubmit={handlerSubmit}>
+   <div className="bg-light p-4 shadow-lg m-5 rounded ">
+    <h3 className="text-center fs-1 fw-bold mb-4"><span className="text-primary">Yes!!</span> You can <span className="text-success">review</span> this service.</h3>
+     <Form onSubmit={handlerSubmit}>
       <Form.Group className="mb-3" controlId="formBasicName">
         <Form.Label className="fw-semibold">Your Name</Form.Label>
         <Form.Control
@@ -76,9 +79,10 @@ const ReviewForm = ({children}) => {
         <Form.Control name="message" type="text" as="textarea" aria-label="With textarea" placeholder="write your review message..." />
       </InputGroup>
       <Button variant="primary" type="submit" className="fw-semibold mt-4 ">
-        SIGN UP
+        Add Review
       </Button>
     </Form>
+   </div>
   );
 };
 

@@ -17,7 +17,7 @@ const NavBar = () => {
   return (
     <nav className="navbar navbar-expand-lg bg-light">
       <div className="container">
-        <Link to="/" className="navbar-brand">
+        <Link to="/" className="navbar-brand fw-bold text-primary">
           SWIPE FOR FOOD
         </Link>
         <button
@@ -80,7 +80,7 @@ const NavBar = () => {
                     to="/addReview"
                     title="Add Review"
                   >
-                    Add Review
+                    Add Service
                   </Link>
                 </li>
                 <li className="nav-item">

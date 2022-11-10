@@ -8,7 +8,7 @@ const Work = () => {
   return (
     <div>
       <h2 className="mt-5 text-center">
-        HOW WE WORKS FOR <span className="text-warning">DELIVERY</span>
+        HOW YOU <span className="text-warning">ORDER</span> FOOD'S
       </h2>
       <p className="text-center fw-semibold opacity-75 mb-5">
         If you want to order something using <br /> swipe for food app. You just
@@ -30,9 +30,11 @@ const Work = () => {
         <div className="card" style={{ maxWidth: "18rem" }}>
           <img src={delivery} className="card-img-top" alt="..." />
           <div className="card-body">
-            <h5 className="card-title fw-bold wait">We Deliver Your Location</h5>
+            <h5 className="card-title fw-bold wait">
+              Deliver Your Location
+            </h5>
             <p className="card-text fw-semibold opacity-75">
-              We prepared and delivered meals arrive at your door and your
+              Prepared and delivered meals arrive at your door and your
               location.
             </p>
           </div>

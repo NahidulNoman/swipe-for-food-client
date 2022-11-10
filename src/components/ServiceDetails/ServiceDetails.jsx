@@ -12,6 +12,7 @@ const ServiceDetails = () => {
 
   return (
     <div className="container mt-5">
+      <h3 className="text-center fw-bold m-5 fs-1">SERVICE <span className="text-success">DETAIL'S</span></h3>
       <div className="row mb-5">
         <div className="col-lg-6 col-sm-12">
           <img
@@ -31,13 +32,13 @@ const ServiceDetails = () => {
           </p>
         </div>
       </div>
+      <h3 className="text-center fs-1 m-5">THIS SERVICE<span className="text-success"> CUSTOMER REVIEW</span></h3>
       <UserReview>{_id}</UserReview>
       {
         user?.email ? <ReviewForm>{_id}</ReviewForm> : <>
-        <h3> Please <Link to='/login'>login</Link> to add a review</h3>
+        <h3 className="text-center fw-bold m-5"> Please <Link to='/login'>login</Link> to add a review</h3>
         </>
       }
-      
     </div>
   );
 };
