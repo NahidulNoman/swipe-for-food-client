@@ -17,6 +17,7 @@ const ServicesRoute = () => {
         setLoader(false)
       });
   }, []);
+  
   // console.log(servicesRoute);
   // console.log(servicesRoute.length)
   // if (loader) {

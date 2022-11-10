@@ -72,7 +72,7 @@ export const router = createBrowserRouter([
         element: <ReviewUpdate></ReviewUpdate>,
         loader: ({ params }) =>
           fetch(
-            `https://swipe-for-food-server.vercel.app/services/${params.id}`
+            `https://swipe-for-food-server.vercel.app/rev/${params.id}`
           ),
       },
     ],

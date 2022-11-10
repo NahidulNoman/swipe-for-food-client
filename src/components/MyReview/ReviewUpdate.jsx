@@ -6,18 +6,19 @@ import useTitle from "../hooks/UseTitle";
 
 const ReviewUpdate = () => {
   useTitle("Review Update");
-  const reviewData = useLoaderData();
-  const { _id } = reviewData;
+  const reviews = useLoaderData();
+  // const { _id } = reviewData;
+  console.log(reviews._id);
 
-  const [reviews, setReviews] = useState([]);
+  // const [reviews, setReviews] = useState([]);
 
-  useEffect(() => {
-    fetch(`https://swipe-for-food-server.vercel.app/rev/${_id}`)
-      .then((res) => res.json())
-      .then((data) => setReviews(data));
-  }, [_id]);
+  // useEffect(() => {
+  //   fetch(`https://swipe-for-food-server.vercel.app/rev/${_id}`)
+  //     .then((res) => res.json())
+  //     .then((data) => setReviews(data));
+  // }, [_id]);
 
-  console.log(reviewData);
+  // console.log(reviewData);
 
   const handlerSubmit = (e) => {
     e.preventDefault();
@@ -29,7 +30,7 @@ const ReviewUpdate = () => {
       message
     }
  fetch(`https://swipe-for-food-server.vercel.app/review/${reviews._id}`, {
-      method: "patch",
+      method: "PATCH",
       headers: {
         "content-type": "application/json",
       },
@@ -37,10 +38,10 @@ const ReviewUpdate = () => {
     })
       .then((res) => res.json())
       .then((data) => {
-        // if (data.modifiedCount > 0) {
-        //   toast.success("your review is updated !!");
-        // }
-        console.log(data)
+        if (data.modifiedCount > 0) {
+          toast.success("your review is updated !!");
+        }
+        // console.log(data)
       });
   };
 

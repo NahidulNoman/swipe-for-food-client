@@ -19,7 +19,7 @@ const MyReview = () => {
       });
   }, [user?.email]);
 
-
+// console.log(reviews)
   // is length 0 show text
   if (reviews.length === 0) {
     return (

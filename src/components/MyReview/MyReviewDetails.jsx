@@ -8,6 +8,7 @@ const MyReviewDetails = ({ review, handlerDelete, handlerUpdate }) => {
   const [nowReview, setNowReview] = useState({});
   // const {_id} = nowReview;
   // console.log(reviewId)
+  
   useEffect(() => {
     fetch(`https://swipe-for-food-server.vercel.app/services/${reviewId}`)
       .then((res) => res.json())
@@ -29,7 +30,7 @@ const MyReviewDetails = ({ review, handlerDelete, handlerUpdate }) => {
         >
           DELETE
         </Button>
-        <Link to={`/reviewUpdate/${reviewId}`}>
+        <Link to={`/reviewUpdate/${_id}`}>
           <Button variant="outline-success" className="fw-semibold">
             EDIT
           </Button>
