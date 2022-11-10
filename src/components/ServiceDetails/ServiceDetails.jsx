@@ -11,7 +11,7 @@ const ServiceDetails = () => {
   const serviceDetails = useLoaderData();
   //   console.log(serviceDetails);
   const { img, description, name, price, deliveryTime, _id } = serviceDetails;
-
+  // console.log(_id)
   return (
     <div className="container mt-5">
       <h3 className="text-center fw-bold m-5 fs-1">

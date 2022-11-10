@@ -23,7 +23,7 @@ const ReviewForm = ({children}) => {
     }
     // console.log(userReview);
 
-    fetch('http://localhost:5000/review', {
+    fetch('https://swipe-for-food-server.vercel.app/review', {
         method : 'post',
         headers : {
             'content-type' : 'application/json'

@@ -20,7 +20,7 @@ const AddReview = () => {
     };
     // console.log(userReview);
 
-    fetch("http://localhost:5000/services", {
+    fetch("https://swipe-for-food-server.vercel.app/services", {
       method: "post",
       headers: {
         "content-type": "application/json",

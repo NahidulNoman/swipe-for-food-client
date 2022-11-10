@@ -11,10 +11,14 @@ const MyReview = () => {
   useTitle("My Review");
   // myReview data loaded
   useEffect(() => {
-    fetch(`http://localhost:5000/review?email=${user?.email}`)
-      .then((res) => res.json())
-      .then((data) => setReviews(data));
+    fetch(`https://swipe-for-food-server.vercel.app/review?email=${user?.email}`)
+      .then((res) => res.json() )
+      .then((data) => {
+        // console.log(data)
+        setReviews(data)
+      });
   }, [user?.email]);
+
 
   // is length 0 show text
   if (reviews.length === 0) {
@@ -29,7 +33,7 @@ const MyReview = () => {
   const handlerDelete = (id) => {
     const agree = window.confirm("you want to delete this service!!");
     if (agree) {
-      fetch(`http://localhost:5000/review/${id}`, {
+      fetch(`https://swipe-for-food-server.vercel.app/review/${id}`, {
         method: "delete",
       })
         .then((res) => res.json())
@@ -43,16 +47,7 @@ const MyReview = () => {
     }
   };
 
-  // update my review
-  // const handlerUpdate = (id) => {
-  //     fetch(`http://localhost:5000/review/${id}`, {
-  //       method : 'patch',
-  //       headers : {
-  //         'content-type' : 'application/json'
-  //       },
-  //       body : JSON.stringify()
-  //     })
-  // }
+  
 
   return (
     <div className="container">

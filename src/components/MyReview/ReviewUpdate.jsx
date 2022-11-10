@@ -5,21 +5,19 @@ import { useLoaderData } from "react-router-dom";
 import useTitle from "../hooks/UseTitle";
 
 const ReviewUpdate = () => {
+  useTitle("Review Update");
   const reviewData = useLoaderData();
   const { _id } = reviewData;
 
   const [reviews, setReviews] = useState([]);
-  // console.log(review)
-
-  useTitle("Review Update");
 
   useEffect(() => {
-    fetch(`http://localhost:5000/reviews/${_id}`)
+    fetch(`https://swipe-for-food-server.vercel.app/rev/${_id}`)
       .then((res) => res.json())
       .then((data) => setReviews(data));
   }, [_id]);
 
-  // console.log(reviews);
+  console.log(reviewData);
 
   const handlerSubmit = (e) => {
     e.preventDefault();
@@ -28,10 +26,10 @@ const ReviewUpdate = () => {
     const message = form.message.value;
     const userReview = {
       name,
-      message,
-    };
-    fetch(`http://localhost:5000/review/${reviews._id}`, {
-      method: "PATCH",
+      message
+    }
+ fetch(`https://swipe-for-food-server.vercel.app/review/${reviews._id}`, {
+      method: "patch",
       headers: {
         "content-type": "application/json",
       },
@@ -39,9 +37,10 @@ const ReviewUpdate = () => {
     })
       .then((res) => res.json())
       .then((data) => {
-        if (data.modifiedCount > 0) {
-          toast.success("your review is updated !!");
-        }
+        // if (data.modifiedCount > 0) {
+        //   toast.success("your review is updated !!");
+        // }
+        console.log(data)
       });
   };
 
@@ -73,7 +72,7 @@ const ReviewUpdate = () => {
         </InputGroup>
 
         <Button variant="primary" type="submit" className="fw-semibold mt-4 ">
-          SIGN UP
+          UPDATE
         </Button>
       </Form>
     </div>

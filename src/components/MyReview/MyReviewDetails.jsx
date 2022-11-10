@@ -9,7 +9,7 @@ const MyReviewDetails = ({ review, handlerDelete, handlerUpdate }) => {
   // const {_id} = nowReview;
   // console.log(reviewId)
   useEffect(() => {
-    fetch(`http://localhost:5000/services/${reviewId}`)
+    fetch(`https://swipe-for-food-server.vercel.app/services/${reviewId}`)
       .then((res) => res.json())
       .then((data) => setNowReview(data));
   }, [reviewId]);

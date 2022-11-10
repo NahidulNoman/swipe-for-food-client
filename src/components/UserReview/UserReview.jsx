@@ -10,11 +10,12 @@ const UserReview = ({children}) => {
     const idReview = children;
 
     useEffect( () => {
-        fetch(`http://localhost:5000/review/${idReview}`)
+        fetch(`https://swipe-for-food-server.vercel.app/review/${idReview}`)
         .then(res => res.json())
         .then(data => setReviews(data))
     },[idReview])
 
+    console.log(idReview)
     return (
         <div className='reviewDetails'>
             {
