@@ -4,8 +4,10 @@ import toast from 'react-hot-toast';
 import { FaCheckCircle } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
 import { AuthContext } from '../../UserContext/UserContext';
+import useTitle from '../hooks/UseTitle';
 
 const SignUp = () => {
+  useTitle('Sign Up')
  const [errors, setErrors] = useState("");
  const {createUser,signInGoogle,userUpdateInfo,setUser} = useContext(AuthContext);
 

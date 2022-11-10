@@ -1,9 +1,11 @@
 import React from 'react';
 import { useLoaderData } from 'react-router-dom';
 import Service from '../Home/Service/Service';
+import useTitle from '../hooks/UseTitle';
 import './serviceRoute.css';
 
 const ServicesRoute = () => {
+    useTitle('Services')
     const servicesRoute = useLoaderData();
     // console.log(servicesRoute);
     // d-flex flex-column flex-lg-row

@@ -4,8 +4,10 @@ import toast from 'react-hot-toast';
 import { FaArrowAltCircleRight } from 'react-icons/fa';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../UserContext/UserContext';
+import useTitle from '../hooks/UseTitle';
 
 const Login = () => {
+  useTitle('Login')
     const [errors, setErrors] = useState("");
     const {logUser,signInGoogle,setLoading} = useContext(AuthContext);
     const location = useLocation();

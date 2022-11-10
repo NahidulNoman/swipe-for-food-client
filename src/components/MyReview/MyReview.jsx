@@ -31,14 +31,14 @@ const MyReview = () => {
           })
           .then(res => res.json())
           .then(data => {
-            if(data.deletedCount ){
+            if(data.deletedCount > 0){
                 const remaining = reviews.filter(rev => rev._id !== id)
                 setReviews(remaining);
               toast.success('service deleted successfully.')
             }
           })
         }
-      }
+      };
 
       // update my review 
       // const handlerUpdate = (id) => {
@@ -53,7 +53,9 @@ const MyReview = () => {
 
 
     return (
-        <div className='container mt-5 cardContainer'>
+        <div className='container'>
+          <h3 className='text-center text-primary m-5'>YOUR TOTAL REVIEW</h3>
+          <div className=' mt-5 cardContainer'>
             {
                 reviews.map(review => <MyReviewDetails
                 key={review._id}
@@ -62,6 +64,7 @@ const MyReview = () => {
                 // handlerUpdate={handlerUpdate}
                 ></MyReviewDetails>)
             }
+        </div>
         </div>
     );
 };
