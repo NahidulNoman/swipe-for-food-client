@@ -2,4 +2,18 @@
     display: grid;
     grid-template-columns: repeat(3,1fr);
     gap: 15px;
+};
+@media only screen and (max-width:510px){
+    .serviceRoute{
+        display: grid;
+        grid-template-columns: repeat(1,1fr);
+        place-items: center;
+    }
+};
+@media only screen and (max-width:995px) and (min-width:511px){
+    .serviceRoute{
+        display: grid;
+        grid-template-columns: repeat(2,1fr);
+        place-items: center;
+    }
 }

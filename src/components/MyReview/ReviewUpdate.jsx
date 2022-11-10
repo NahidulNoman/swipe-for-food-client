@@ -19,7 +19,7 @@ const ReviewUpdate = () => {
       .then((data) => setReviews(data));
   }, [_id]);
 
-  console.log(reviews);
+  // console.log(reviews);
 
   const handlerSubmit = (e) => {
     e.preventDefault();

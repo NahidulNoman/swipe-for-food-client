@@ -2,7 +2,7 @@ import React, { useContext, useState } from 'react';
 import { Button, Form } from 'react-bootstrap';
 import toast from 'react-hot-toast';
 import { FaCheckCircle } from 'react-icons/fa';
-import { Link } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../UserContext/UserContext';
 import useTitle from '../hooks/UseTitle';
 
@@ -10,7 +10,10 @@ const SignUp = () => {
   useTitle('Sign Up')
  const [errors, setErrors] = useState("");
  const {createUser,signInGoogle,userUpdateInfo,setUser} = useContext(AuthContext);
+  const location = useLocation();
+  const navigate = useNavigate();
 
+  const from = location.state?.from?.pathname || "/";
   
     const handlerSubmit = (e) => {
       e.preventDefault();
@@ -28,6 +31,7 @@ const SignUp = () => {
           updateUser(name, photoUrl);
           toast.success('Successfully Sign Up !!');
           form.reset();
+          navigate(from, { replace: true });
           const user = result.user;
           console.log(user);
         })

@@ -8,7 +8,7 @@ const Service = ({ service }) => {
   const { img, price, description, name, rating, deliveryTime, _id } = service;
 
   return (
-    <div className="card" style={{ maxWidth: "18rem" }}>
+    <div className="card mb-4" style={{ maxWidth: "18rem" }}>
       <PhotoProvider>
         <PhotoView src={img}>
           <img src={img} className="card-img-top" alt="..." />
