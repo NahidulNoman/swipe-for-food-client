@@ -15,9 +15,9 @@ const UserReview = ({children}) => {
         .then(data => setReviews(data))
     },[idReview])
 
-    console.log(idReview)
+    // console.log(idReview)
     return (
-        <div className='reviewDetails'>
+        <div className='reviewDetails services'>
             {
                 reviews.map(review => <UserReviewDetails
                 key={review._id}

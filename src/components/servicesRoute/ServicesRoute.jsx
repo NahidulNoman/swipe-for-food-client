@@ -41,7 +41,7 @@ const ServicesRoute = () => {
       ) : (
         <div>
           <h3 className="text-center m-5 text-primary">MENU CATEGORIES</h3>
-          <div className=" serviceRoute container mt-5 mb-5 ">
+          <div className=" services container mt-5 mb-5 ">
             {serviceData.map((service) => (
               <Service key={service._id} service={service}></Service>
             ))}
