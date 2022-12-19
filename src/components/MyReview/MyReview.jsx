@@ -12,7 +12,7 @@ const MyReview = () => {
   // myReview data loaded
   useEffect(() => {
     fetch(
-      ` https://swipe-for-food-server.vercel.app/review?email=${user?.email}`,
+      `https://swipe-for-food-server.vercel.app/review?email=${user?.email}`,
       {
         headers: {
           authorization: `Bearer ${localStorage.getItem("swipe-token")}`,
@@ -21,12 +21,12 @@ const MyReview = () => {
     )
       .then((res) => {
         if (res.status === 403 || res.status === 401) {
-          logOut();
+          return logOut();
         }
         return res.json();
       })
       .then((data) => {
-        // console.log(data)
+        console.log(data)
         setReviews(data);
       });
   }, [user?.email, logOut]);

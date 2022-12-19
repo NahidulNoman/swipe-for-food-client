@@ -7,7 +7,7 @@ import { AuthContext } from '../../UserContext/UserContext';
 import useTitle from '../hooks/UseTitle';
 
 const SignUp = () => {
-  useTitle('Sign Up')
+  useTitle('Sign Up');
  const [errors, setErrors] = useState("");
  const {createUser,signInGoogle,userUpdateInfo,setUser} = useContext(AuthContext);
   const location = useLocation();
