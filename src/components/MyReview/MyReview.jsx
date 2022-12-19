@@ -6,29 +6,32 @@ import "./ReviewDetails.css";
 import useTitle from "../hooks/UseTitle";
 
 const MyReview = () => {
-  const { user , logOut} = useContext(AuthContext);
+  const { user, logOut } = useContext(AuthContext);
   const [reviews, setReviews] = useState([]);
   useTitle("My Review");
   // myReview data loaded
   useEffect(() => {
-    fetch(` https://swipe-for-food-server.vercel.app/review?email=${user?.email}`, {
-      headers : {
-        authorization : `Bearer ${localStorage.getItem('swipe-token')}`
+    fetch(
+      ` https://swipe-for-food-server.vercel.app/review?email=${user?.email}`,
+      {
+        headers: {
+          authorization: `Bearer ${localStorage.getItem("swipe-token")}`,
+        },
       }
-    })
+    )
       .then((res) => {
-        if(res.status === 403 || res.status === 401){
+        if (res.status === 403 || res.status === 401) {
           logOut();
         }
-        return res.json()
-      } )
+        return res.json();
+      })
       .then((data) => {
         // console.log(data)
-        setReviews(data)
+        setReviews(data);
       });
-  }, [user?.email,logOut]);
+  }, [user?.email, logOut]);
 
-// console.log(reviews)
+  // console.log(reviews)
   // is length 0 show text
   if (reviews.length === 0) {
     return (
@@ -55,8 +58,6 @@ const MyReview = () => {
         });
     }
   };
-
-  
 
   return (
     <div className="container">
