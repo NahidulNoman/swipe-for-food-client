@@ -12,7 +12,7 @@ const Footer = () => {
             Privacy Policy | Terms of use <br />
           </p>
           <p className="text-center text-white">
-          Copyright © 2022. SWIPE FOR FOOD. All rights reserved.
+            Copyright © 2022. SWIPE FOR FOOD. All rights reserved.
           </p>
         </div>
       </footer>
